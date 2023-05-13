@@ -41,7 +41,34 @@ def opcode5(instruction):
     #complete the print statement.
 
 def opcode6(instruction):
-    variable[instruction[1]]="001000"
+    x=str(instruction[2])
+    print("00101"+"0"+registers[instruction[1]]+x)
+
+def opcode7(instruction):
+    print("00110"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+
+def opcode8(instruction):
+    print("00111"+"00000"+registers[instruction[1]]+registers[instruction[2]])
+
+def opcode9(instruction):
+    x=int(instruction[2][1:])
+    x=bin(x)
+    x=x[2:]
+    if(len(x)>7):
+        pass
+    else:
+        x=x.zfill(7)
+    print("01000"+"0"+registers[instruction[1]]+x)
+
+def opcode10(instruction):
+    x=int(instruction[2][1:])
+    x=bin(x)
+    x=x[2:]
+    if(len(x)>7):
+        pass
+    else:
+        x=x.zfill(7)
+    print("01001"+"0"+registers[instruction[1]]+x)
 
 #space for opcodes of between
 
