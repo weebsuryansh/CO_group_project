@@ -182,15 +182,20 @@ for i in program:
         opcode10(x)
         number_of_instructions_run+=1
     elif(x[0]=="ls"):
-        pass
+        opcode11(x)
+        number_of_instructions_run+=1
     elif(x[0]=="xor"):
-        pass
+        opcode12(x)
+        number_of_instructions_run+=1
     elif(x[0]=="or"):
-        pass
+        opcode13(x)
+        number_of_instructions_run+=1
     elif(x[0]=="and"):
-        pass
+        opcode14(x)
+        number_of_instructions_run+=1
     elif(x[0]=="not"):
-        pass
+        opcode15(x)
+        number_of_instructions_run+=1
     elif(x[0]=="cmp"):
         opcode16(x)
         number_of_instructions_run+=1
