@@ -15,8 +15,6 @@ labels={"label1":"0001101",
 
 variable = {}
 
-abc=0
-
 def opcode1(instruction):
     print("00000"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
