@@ -70,6 +70,22 @@ def opcode10(instruction):
         x=x.zfill(7)
     print("01001"+"0"+registers[instruction[1]]+x)
 
+def opcode11(instruction):
+    print("01010"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+
+
+
+def opcode12(instruction):
+    print("01011"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+
+def opcode13(instruction):
+    print("01100"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+
+def opcode14(instruction):
+    print("01101"+"00000"+registers[instruction[1]]+registers[instruction[2]])
+
+def opcode15(instruction):
+    print("01110"+"00000"+registers[instruction[1]]+registers[instruction[2]])
 #space for opcodes of between
 
 def opcode16(instruction):
