@@ -57,3 +57,4 @@ def opcode19(instruction):
 
 def opcode20():
     print("11010"+"00000000000")
+
