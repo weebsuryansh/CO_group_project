@@ -40,7 +40,7 @@ def opcode5(instruction):
     print("00100"+"0"+registers[instruction[1]]+"")
     #complete the print statement.
 
-def opcode6(instruction):
+def opcode(instruction):
     variable[instruction[1]]="001000"
 
 #space for opcodes of between
