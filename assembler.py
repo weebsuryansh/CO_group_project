@@ -92,27 +92,27 @@ program = open("")
 program = program.readlines()
 
 for i in program:
-    x = i.split()
+    x = list(i.split())
     if(x[0]=="var"):
-        pass
+        opcode1(x)
     if(x[0]=="add"):
-        pass
+        opcode2(x)
     if(x[0]=="sub"):
-        pass
+        opcode3(x)
     if(x[0]=="mov"):
-        pass
+        opcode4(x)
     if(x[0]=="mov" and x[2][0:3]=="reg"):
-        pass
+        opcode5(x)
     if(x[0]=="ld"):
-        pass
+        opcode6(x)
     if(x[0]=="st"):
-        pass
+        opcode7(x)
     if(x[0]=="mul"):
-        pass
+        opcode8(x)
     if(x[0]=="div"):
-        pass
+        opcode9(x)
     if(x[0]=="rs"):
-        pass
+        opcode10(x)
     if(x[0]=="ls"):
         pass
     if(x[0]=="xor"):
@@ -124,13 +124,13 @@ for i in program:
     if(x[0]=="not"):
         pass
     if(x[0]=="cmp"):
-        pass
+        opcode16(x)
     if(x[0]=="jlt"):
-        pass
+        opcode17(x)
     if(x[0]=="jgt"):
-        pass
+        opcode18(x)
     if(x[0]=="je"):
-        pass
+        opcode19(x)
     if(x[0]=="hlt"):
-        pass
+        opcode20(x)
 
