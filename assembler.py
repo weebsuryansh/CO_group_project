@@ -73,8 +73,6 @@ def opcode10(instruction):
 def opcode11(instruction):
     print("01010"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
-
-
 def opcode12(instruction):
     print("01011"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
