@@ -128,15 +128,15 @@ for i in program:
     if(x[0]=="rs"):
         opcode10(x)
     if(x[0]=="ls"):
-        pass
+        opcode11(x)
     if(x[0]=="xor"):
-        pass
+        opcode12(x)
     if(x[0]=="or"):
-        pass
+        opcode13(x)
     if(x[0]=="and"):
-        pass
+        opcode14(x)
     if(x[0]=="not"):
-        pass
+        opcode15(x)
     if(x[0]=="cmp"):
         opcode16(x)
     if(x[0]=="jlt"):
