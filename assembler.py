@@ -105,36 +105,96 @@ def opcode10(instruction):
         pass
     else:
         x=x.zfill(7)
-    print("01001"+"0"+registers[instruction[1]]+x)
+    if(instruction[1] not in register_name):
+        print("illegal register name")
+        quit()
+    else:
+        print("01001"+"0"+registers[instruction[1]]+x)
     
 def opcode11(instruction):
-    print("01010"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+    if(instruction[1] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[2] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[3] not in register_name):
+        print("illegal register name")
+        quit()
+    else:
+        print("01010"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
 def opcode12(instruction):
-    print("01011"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+    if(instruction[1] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[2] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[3] not in register_name):
+        print("illegal register name")
+        quit()
+    else:
+        print("01011"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
 def opcode13(instruction):
-    print("01100"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
+    if(instruction[1] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[2] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[3] not in register_name):
+        print("illegal register name")
+        quit()
+    else:
+        print("01100"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
 def opcode14(instruction):
-    print("01101"+"00000"+registers[instruction[1]]+registers[instruction[2]])
+    if(instruction[1] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[2] not in register_name):
+        print("illegal register name")
+        quit()
+    else:
+        print("01101"+"00000"+registers[instruction[1]]+registers[instruction[2]])
 
 def opcode15(instruction):
-    print("01110"+"00000"+registers[instruction[1]]+registers[instruction[2]])
+    if(instruction[1] not in register_name):
+        print("illegal register name")
+        quit()
+    elif(instruction[2] not in register_name):
+        print("illegal register name")
+        quit()
+    else:
+        print("01110"+"00000"+registers[instruction[1]]+registers[instruction[2]])
 
 #space for opcodes of between
 
 def opcode16(instruction):
-    print("01111"+"0000"+labels[instruction[1]])
+    if instruction[1] not in labels.keys():
+        print("Error 404, label doesn't exist.")
+    else:
+        print("01111"+"0000"+labels[instruction[1]])
 
 def opcode17(instruction):
-    print("11100"+"0000"+labels[instruction[1]])
+    if instruction[1] not in labels.keys():
+        print("Error 404, label doesn't exist.")
+    else:
+        print("11100"+"0000"+labels[instruction[1]])
 
 def opcode18(instruction):
-    print("11101"+"0000"+labels[instruction[1]])
+    if instruction[1] not in labels.keys():
+        print("Error 404, label doesn't exist.")
+    else:
+        print("11101"+"0000"+labels[instruction[1]])
 
 def opcode19(instruction):
-    print("11111"+"0000"+labels[instruction[1]])
+    if instruction[1] not in labels.keys():
+        print("Error 404, label doesn't exist.")
+    else:
+        print("11111"+"0000"+labels[instruction[1]])
 
 def opcode20():
     print("11010"+"00000000000")
