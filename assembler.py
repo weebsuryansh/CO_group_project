@@ -15,6 +15,8 @@ labels={"label1":"0001101",
 
 variable = {}
 
+
+
 def opcode1(instruction):
     print("00000"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]])
 
@@ -57,3 +59,51 @@ def opcode19(instruction):
 
 def opcode20():
     print("11010"+"00000000000")
+ 
+
+program = open("")
+program = program.readlines()
+
+for i in program:
+    x = i.split()
+    if(x[0]=="var"):
+        pass
+    if(x[0]=="add"):
+        pass
+    if(x[0]=="sub"):
+        pass
+    if(x[0]=="mov"):
+        pass
+    if(x[0]=="mov" and x[2][0:3]=="reg"):
+        pass
+    if(x[0]=="ld"):
+        pass
+    if(x[0]=="st"):
+        pass
+    if(x[0]=="mul"):
+        pass
+    if(x[0]=="div"):
+        pass
+    if(x[0]=="rs"):
+        pass
+    if(x[0]=="ls"):
+        pass
+    if(x[0]=="xor"):
+        pass
+    if(x[0]=="or"):
+        pass
+    if(x[0]=="and"):
+        pass
+    if(x[0]=="not"):
+        pass
+    if(x[0]=="cmp"):
+        pass
+    if(x[0]=="jlt"):
+        pass
+    if(x[0]=="jgt"):
+        pass
+    if(x[0]=="je"):
+        pass
+    if(x[0]=="hlt"):
+        pass
+
