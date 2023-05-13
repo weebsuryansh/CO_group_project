@@ -8,6 +8,11 @@ registers = {"reg0":'000',
              "FLAG":"111"
              }
 
+labels={"label1":"0001101",
+        "label2":"0001000",
+        "label3":"0001100",
+        "label4":"0001110"}
+
 variable = {}
 
 def opcode1(instruction):
@@ -35,3 +40,20 @@ def opcode5(instruction):
 
 def opcode6(instruction):
     variable[instruction[1]]="001000"
+
+#space for opcodes of between
+
+def opcode16(instruction):
+    print("01111"+"0000"+labels[instruction[1]])
+
+def opcode17(instruction):
+    print("11100"+"0000"+labels[instruction[1]])
+
+def opcode18(instruction):
+    print("11101"+"0000"+labels[instruction[1]])
+
+def opcode19(instruction):
+    print("11111"+"0000"+labels[instruction[1]])
+
+def opcode20():
+    print("11010"+"00000000000")
