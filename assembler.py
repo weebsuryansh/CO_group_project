@@ -175,24 +175,28 @@ def opcode15(instruction):
 def opcode16(instruction):
     if instruction[1] not in labels.keys():
         print("Error 404, label doesn't exist.")
+        return
     else:
         print("01111"+"0000"+labels[instruction[1]])
 
 def opcode17(instruction):
     if instruction[1] not in labels.keys():
         print("Error 404, label doesn't exist.")
+        return
     else:
         print("11100"+"0000"+labels[instruction[1]])
 
 def opcode18(instruction):
     if instruction[1] not in labels.keys():
         print("Error 404, label doesn't exist.")
+        return
     else:
         print("11101"+"0000"+labels[instruction[1]])
 
 def opcode19(instruction):
     if instruction[1] not in labels.keys():
         print("Error 404, label doesn't exist.")
+        return
     else:
         print("11111"+"0000"+labels[instruction[1]])
 
