@@ -170,8 +170,6 @@ def opcode15(instruction):
     else:
         print("01110"+"00000"+registers[instruction[1]]+registers[instruction[2]])
 
-#space for opcodes of between
-
 def opcode16(instruction):
     if instruction[1] not in labels.keys():
         print("Error 404, label doesn't exist.")
