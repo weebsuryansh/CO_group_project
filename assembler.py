@@ -26,13 +26,13 @@ def opcode0(instruction):
 
 def opcode1(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -40,13 +40,13 @@ def opcode1(instruction):
 
 def opcode2(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -54,19 +54,19 @@ def opcode2(instruction):
 
 def opcode3(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                 
-        output_program.write("invalid immediate value")
+        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=int(float(instruction[2][1:]))
     if(x<0):
-        output_program.write("invalid immediate value")
+        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=bin(x)
     x=x[2:]
     if(len(x)>7):
-        output_program.write("illegal immediate value")
+        output_program.write(f"illegal immediate value on line {number_of_instructions_run}")
         quit()
     else:
         x=x.zfill(7)
@@ -75,10 +75,10 @@ def opcode3(instruction):
 
 def opcode4(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string                                                                                     
@@ -86,10 +86,10 @@ def opcode4(instruction):
 
 def opcode5(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in variable.keys()):
-        output_program.write("Unnamed Variable")
+        output_program.write(f"Unnamed Variable on line {number_of_instructions_run}")
         quit()
     else:
         global output_string                                                                                        
@@ -97,10 +97,10 @@ def opcode5(instruction):
 
 def opcode6(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("invalid register name")
+        output_program.write(f"invalid register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in variable.keys()):
-        output_program.write("Unnamed Variable")
+        output_program.write(f"Unnamed Variable on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -108,13 +108,13 @@ def opcode6(instruction):
 
 def opcode7(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -122,10 +122,10 @@ def opcode7(instruction):
 
 def opcode8(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -133,19 +133,19 @@ def opcode8(instruction):
 
 def opcode9(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                
-        output_program.write("invalid immediate value")
+        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=int(float(instruction[2][1:]))
     if(x<0):
-        output_program.write("invalid immediate value")
+        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=bin(x)
     x=x[2:]
     if(len(x)>7):
-        output_program.write("illegal immediate value")
+        output_program.write(f"illegal immediate value on line {number_of_instructions_run}")
         quit()
     else:
         x=x.zfill(7)
@@ -154,19 +154,19 @@ def opcode9(instruction):
 
 def opcode10(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                
-        output_program.write("invalid immediate value")
+        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=int(float(instruction[2][1:]))
     if(x<0):
-        output_program.write("invalid immediate value")
+        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=bin(x)
     x=x[2:]
     if(len(x)>7):
-        output_program.write("illegal immediate value")
+        output_program.write(f"illegal immediate value on line {number_of_instructions_run}")
         quit()
     else:
         x=x.zfill(7)
@@ -175,13 +175,13 @@ def opcode10(instruction):
     
 def opcode11(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -189,13 +189,13 @@ def opcode11(instruction):
 
 def opcode12(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -203,13 +203,13 @@ def opcode12(instruction):
 
 def opcode13(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -218,10 +218,10 @@ def opcode13(instruction):
 
 def opcode14(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -229,10 +229,10 @@ def opcode14(instruction):
 
 def opcode15(instruction):
     if(instruction[1] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write("illegal register name")
+        output_program.write(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -240,7 +240,7 @@ def opcode15(instruction):
 
 def opcode16(instruction):
     if instruction[1] not in numbering.keys():
-        output_program.write("label doesn't exist")
+        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -251,7 +251,7 @@ def opcode16(instruction):
 
 def opcode17(instruction):
     if instruction[1] not in numbering.keys():
-        output_program.write("label doesn't exist")
+        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -262,7 +262,7 @@ def opcode17(instruction):
 
 def opcode18(instruction):
     if instruction[1] not in numbering.keys():
-        output_program.write("label doesn't exist")
+        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -273,7 +273,7 @@ def opcode18(instruction):
 
 def opcode19(instruction):
     if instruction[1] not in numbering.keys():
-        output_program.write("label doesn't exist")
+        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -301,10 +301,10 @@ output_program = open("output.txt","w")
                                                                                                                         
 y=program[-1]
 if(y[-3:]!='hlt'):
-    output_program.write("halt not last instruction ")
+    output_program.write(f"halt not last instruction ")
     quit()
 
-number_of_instructions_run =0
+number_of_instructions_run =1
 
 F1=0    #no of variable instruction
 F2=0    #no of non variable instruction
@@ -332,7 +332,7 @@ for i in program:
         opcode0(x)
         number_of_instructions_run+=1
         if(e1>0):
-            output_program.write("variable declared at middle")
+            output_program.write(f"variable declared at middle  on line {number_of_instructions_run}")
             quit()
         else:
             e0+=1     
@@ -417,10 +417,10 @@ for i in program:
         e1+=1
         halts+=1
         if (halts>1):
-            output_program.write("Halt in Middle")
+            output_program.write(f"Halt in Middle on line {number_of_instructions_run}")
             quit()
     else:                                                  #need to add another elif condition for labels like for i x[0] in labels
-        output_program.write("general syntax error")
+        output_program.write(f"general syntax error on line {number_of_instructions_run}")
         quit()
     
 output_program.write(output_string)
