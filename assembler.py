@@ -419,7 +419,7 @@ for i in program:
         if (halts>1):
             output_program.write("Halt in Middle")
             quit()
-    else:                                                
+    else:                                                  #need to add another elif condition for labels like for i x[0] in labels
         output_program.write("general syntax error")
         quit()
     
