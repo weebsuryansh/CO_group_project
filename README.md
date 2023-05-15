@@ -10,6 +10,9 @@ Suryansh Varshney - 2022519
 Suryansh Kumar singh - 2022518
 
 
-the entire program is made using python
 
-the main program file's name is "assembler.py"
+
+
+the entire program is made using python.
+
+the main program file's name is "assembler.py".
