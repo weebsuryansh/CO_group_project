@@ -428,7 +428,7 @@ output_string= ""
 output_program = open("output.txt","w")
                                                                                                                         
 y=program[-1]
-if(y[-3:]!='hlt'):
+if("hlt" not in program[-1]):    ##i changed program[-1][-3:]="hlt" to this condition.
     output_program.write(f"halt not last instruction ")
     quit()
 
