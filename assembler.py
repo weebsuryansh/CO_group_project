@@ -20,7 +20,7 @@ register_name0 =["R0","R1","R2","R3","R4","R5","R6","FLAGS"]
 
 def opcode0(instruction):
     if(len(instruction)!=2):
-        output_program.write(f"must contain 2 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 2 parameters only in line {number_of_instructions_run}")
         quit()
     y=F2 + len(variable)
     y=bin(y)
@@ -30,19 +30,19 @@ def opcode0(instruction):
 
 def opcode1(instruction):
     if(len(instruction)!=4):
-        output_program.write(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -50,19 +50,19 @@ def opcode1(instruction):
 
 def opcode2(instruction):
     if(len(instruction)!=4):
-        output_program.write(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -70,29 +70,29 @@ def opcode2(instruction):
 
 def opcode3(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit()
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     y101=str(instruction[2][1:])
     if(y101.isnumeric()!=True):
-        output_program.write(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
         quit()
     if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                 
-        output_program.write(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
         quit()
     x=int(float(instruction[2][1:]))
     if(x<0):
-        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
+        print(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=bin(x)
     x=x[2:]
     if(len(x)>7):
-        output_program.write(f"illegal immediate value on line {number_of_instructions_run}")
+        print(f"illegal immediate value on line {number_of_instructions_run}")
         quit()
     else:
         x=x.zfill(7)
@@ -101,16 +101,16 @@ def opcode3(instruction):
 
 def opcode4(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if(instruction[1] not in register_name0):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[1] =="FLAGS"):
-        output_program.write(f"illegal use of flag on line {number_of_instructions_run}")
+        print(f"illegal use of flag on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name0):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string                                                                                     
@@ -118,16 +118,16 @@ def opcode4(instruction):
 
 def opcode5(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only  in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only  in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in variable.keys()):
-        output_program.write(f"Unnamed Variable on line {number_of_instructions_run}")
+        print(f"Unnamed Variable on line {number_of_instructions_run}")
         quit()
     else:
         global output_string                                                                                        
@@ -135,16 +135,16 @@ def opcode5(instruction):
 
 def opcode6(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"invalid register name on line {number_of_instructions_run}")
+        print(f"invalid register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in variable.keys()):
-        output_program.write(f"Unnamed Variable on line {number_of_instructions_run}")
+        print(f"Unnamed Variable on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -152,19 +152,19 @@ def opcode6(instruction):
 
 def opcode7(instruction):
     if(len(instruction)!=4):
-        output_program.write(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -172,16 +172,16 @@ def opcode7(instruction):
 
 def opcode8(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -189,25 +189,25 @@ def opcode8(instruction):
 
 def opcode9(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                
-        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
+        print(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=int(float(instruction[2][1:]))
     if(x<0):
-        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
+        print(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=bin(x)
     x=x[2:]
     if(len(x)>7):
-        output_program.write(f"illegal immediate value on line {number_of_instructions_run}")
+        print(f"illegal immediate value on line {number_of_instructions_run}")
         quit()
     else:
         x=x.zfill(7)
@@ -216,25 +216,25 @@ def opcode9(instruction):
 
 def opcode10(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                
-        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
+        print(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=int(float(instruction[2][1:]))
     if(x<0):
-        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
+        print(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     x=bin(x)
     x=x[2:]
     if(len(x)>7):
-        output_program.write(f"illegal immediate value on line {number_of_instructions_run}")
+        print(f"illegal immediate value on line {number_of_instructions_run}")
         quit()
     else:
         x=x.zfill(7)
@@ -243,19 +243,19 @@ def opcode10(instruction):
     
 def opcode11(instruction):
     if(len(instruction)!=4):
-        output_program.write(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -263,19 +263,19 @@ def opcode11(instruction):
 
 def opcode12(instruction):
     if(len(instruction)!=4):
-        output_program.write(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -283,19 +283,19 @@ def opcode12(instruction):
 
 def opcode13(instruction):
     if(len(instruction)!=4):
-        output_program.write(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[3] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -304,16 +304,16 @@ def opcode13(instruction):
 
 def opcode14(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -321,16 +321,16 @@ def opcode14(instruction):
 
 def opcode15(instruction):
     if(len(instruction)!=3):
-        output_program.write(f"must contain 3 parameters only  in line {number_of_instructions_run}")
+        print(f"must contain 3 parameters only  in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if(instruction[1] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     elif(instruction[2] not in register_name):
-        output_program.write(f"illegal register name on line {number_of_instructions_run}")
+        print(f"illegal register name on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -338,13 +338,13 @@ def opcode15(instruction):
 
 def opcode16(instruction):
     if(len(instruction)!=2):
-        output_program.write(f"must contain 4 parameters only  in line {number_of_instructions_run}")
+        print(f"must contain 4 parameters only  in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if instruction[1] not in numbering.keys():
-        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
+        print(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -355,13 +355,13 @@ def opcode16(instruction):
 
 def opcode17(instruction):
     if(len(instruction)!=2):
-        output_program.write(f"must contain 2 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 2 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if instruction[1] not in numbering.keys():
-        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
+        print(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -372,13 +372,13 @@ def opcode17(instruction):
 
 def opcode18(instruction):
     if(len(instruction)!=2):
-        output_program.write(f"must contain 2 parameters only  in line {number_of_instructions_run}")
+        print(f"must contain 2 parameters only  in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if instruction[1] not in numbering.keys():
-        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
+        print(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -389,13 +389,13 @@ def opcode18(instruction):
 
 def opcode19(instruction):
     if(len(instruction)!=2):
-        output_program.write(f"must contain 2 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 2 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     if instruction[1] not in numbering.keys():
-        output_program.write(f"label doesn't exist on line {number_of_instructions_run}")
+        print(f"label doesn't exist on line {number_of_instructions_run}")
         quit()
     else:
         global output_string
@@ -406,30 +406,37 @@ def opcode19(instruction):
 
 def opcode20(instruction):
     if(len(instruction)!=1):
-        output_program.write(f"must contain 1 parameters only in line {number_of_instructions_run}")
+        print(f"must contain 1 parameters only in line {number_of_instructions_run}")
         quit()
     if("FLAGS" in instruction):
-        output_program.write(f"illegal use of flags in line {number_of_instructions_run}")
+        print(f"illegal use of flags in line {number_of_instructions_run}")
         quit() 
     global output_string
     output_string+=("11010"+"00000000000")
  
 p101=[]
-program1 = open("input.txt")
-program = program1.readlines()
+program=[]
+while True:
+    try:
+        n = input()
+        n=str(n)
+        program.append(n)
+    except EOFError:
+        break
+
 for i in range(len(program)):
     if(program[i]!="\n"):
-        p101.append(program[i].lstrip())
+        l101=program[i].lstrip()
+        p101.append(l101)
 program= p101.copy()
 
 no_of_instruction = len(program)                                                                                       
 
 output_string= ""
-output_program = open("output.txt","w")
                                                                                                                         
 y=program[-1]
 if("hlt" not in program[-1]):    ##i changed program[-1][-3:]="hlt" to this condition.
-    output_program.write(f"halt not last instruction ")
+    print(f"halt not last instruction ")
     quit()
 
 number_of_instructions_run =1
@@ -461,7 +468,7 @@ for i in program:
         opcode0(x)
         number_of_instructions_run+=1
         if(e1>0):
-            output_program.write(f"variable declared at middle  on line {number_of_instructions_run}")
+            print(f"variable declared at middle  on line {number_of_instructions_run}")
             quit()
         else:
             e0+=1     
@@ -482,7 +489,7 @@ for i in program:
         number_of_instructions_run+=1
         e1+=1
     elif(x[0]=="mov" and x[2][0]!="$"):
-        output_program.write(f"invalid immediate value on line {number_of_instructions_run}")
+        print(f"invalid immediate value on line {number_of_instructions_run}")
         quit()
     elif(x[0]=="ld"):
         opcode5(x)
@@ -549,16 +556,14 @@ for i in program:
         e1+=1
         halts+=1
         if (halts>1):
-            output_program.write(f"Halt in Middle on line {number_of_instructions_run}")
+            print(f"Halt in Middle on line {number_of_instructions_run}")
             quit()
     elif (x[0] not in operand):
-        output_program.write(f"invalid Operand on line {number_of_instructions_run}")
+        print(f"invalid Operand on line {number_of_instructions_run}")
         quit()
     else:                                                  
-        output_program.write(f"general syntax error on line {number_of_instructions_run}")
+        print(f"general syntax error on line {number_of_instructions_run}")
         number_of_instructions_run+=1
         e1+=1
         quit()
-output_program.write(output_string)
-output_program.close()
-program1.close()
+print(output_string)
