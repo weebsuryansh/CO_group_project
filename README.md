@@ -17,4 +17,4 @@ the entire program is made using python.
 
 the main program file's name is "assembler.py".
 
-the input file program has to be written in input.txt and the output will be recieved in output.txt....
+
