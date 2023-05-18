@@ -19,3 +19,4 @@ the main program file's name is "assembler.py".
 
 
 please ignore input and output.
+the assembler file in simple-assembler has beeen modified to do automatic testing
