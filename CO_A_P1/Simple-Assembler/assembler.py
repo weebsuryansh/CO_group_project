@@ -15,6 +15,19 @@ labels={}
 
 variable ={}
 
+def float_to_ieee_754(float_num):
+    float_num=float(float_num)
+    if float_num == 0:
+        return '000' 
+    abs_num = abs(float_num)
+    bias = 3
+    exponent = int(abs_num).bit_length() - 1 + bias
+    mantissa = abs_num / (2 ** exponent)
+    exponent_bits = format(exponent, '03b')
+    mantissa_bits = format(int(mantissa * (2 ** 5)), '05b')
+    ieee_754_bits = exponent_bits + mantissa_bits
+    return str(ieee_754_bits)
+
 register_name =["R0","R1","R2","R3","R4","R5","R6"]
 register_name0 =["R0","R1","R2","R3","R4","R5","R6","FLAGS"]
 
@@ -413,7 +426,207 @@ def opcode20(instruction):
         quit() 
     global output_string
     output_string+=("11010"+"00000000000")
- 
+
+def opcode21(instruction):
+    if(len(instruction)!=4):
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit() 
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[2] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[3] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    else:
+        global output_string
+        output_string += "10000"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]]+"\n"
+
+def opcode22(instruction):
+    if(len(instruction)!=4):
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit() 
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[2] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[3] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    else:
+        global output_string
+        output_string+=("10001"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]]+"\n")
+
+def opcode23(instruction):
+    if(len(instruction)!=3):
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit()
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    y101=str(instruction[2][1:])
+    if(y101.isnumeric()!=True):
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    x=float(instruction[2][1:])
+    if(x<0):
+        print(f"invalid immediate value on line {number_of_instructions_run}")
+        quit()
+    x=float_to_ieee_754(x)
+    if(len(x)>8):
+        print(f"illegal immediate value on line {number_of_instructions_run}")
+        quit()
+    else:
+        x=str(x).zfill(8)
+        global output_string
+        output_string+=("10010"+registers[instruction[1]]+x+"\n")
+
+def opcode24(instruction):
+    if(len(instruction)!=4):
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit() 
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[2] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[3] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    else:
+        global output_string
+        output_string+=("10011"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]]+"\n")
+
+def opcode25(instruction):
+    if(len(instruction)!=4):
+        print(f"must contain 4 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit() 
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[2] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    elif(instruction[3] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    else:
+        global output_string
+        output_string+=("10100"+"00"+registers[instruction[1]]+registers[instruction[2]]+registers[instruction[3]]+"\n")
+
+def opcode26(instruction):
+    if(len(instruction)!=3):
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit()
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    y101=str(instruction[2][1:])
+    if(y101.isnumeric()!=True):
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                 
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    x=int(float(instruction[2][1:]))
+    if(x<0):
+        print(f"invalid immediate value on line {number_of_instructions_run}")
+        quit()
+    x=bin(x)
+    x=x[2:]
+    if(len(x)>7):
+        print(f"illegal immediate value on line {number_of_instructions_run}")
+        quit()
+    else:
+        x=x.zfill(7)
+        global output_string
+        output_string+=("10101"+"0"+registers[instruction[1]]+x+"\n")
+
+def opcode27(instruction):
+    if(len(instruction)!=3):
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit()
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    y101=str(instruction[2][1:])
+    if(y101.isnumeric()!=True):
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                 
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    x=int(float(instruction[2][1:]))
+    if(x<0):
+        print(f"invalid immediate value on line {number_of_instructions_run}")
+        quit()
+    x=bin(x)
+    x=x[2:]
+    if(len(x)>7):
+        print(f"illegal immediate value on line {number_of_instructions_run}")
+        quit()
+    else:
+        x=x.zfill(7)
+        global output_string
+        output_string+=("10110"+"0"+registers[instruction[1]]+x+"\n")
+
+def opcode28(instruction):
+    if(len(instruction)!=3):
+        print(f"must contain 3 parameters only in line {number_of_instructions_run}")
+        quit()
+    if("FLAGS" in instruction):
+        print(f"illegal use of flags in line {number_of_instructions_run}")
+        quit()
+    if(instruction[1] not in register_name):
+        print(f"illegal register name on line {number_of_instructions_run}")
+        quit()
+    y101=str(instruction[2][1:])
+    if(y101.isnumeric()!=True):
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    if(float(instruction[2][1:])-int(float(instruction[2][1:]))!=0):                                                 
+        print(f"immediate value is not a integer value on line {number_of_instructions_run}")
+        quit()
+    x=int(float(instruction[2][1:]))
+    if(x<0):
+        print(f"invalid immediate value on line {number_of_instructions_run}")
+        quit()
+    x=bin(x)
+    x=x[2:]
+    if(len(x)>7):
+        print(f"illegal immediate value on line {number_of_instructions_run}")
+        quit()
+    else:
+        x=x.zfill(7)
+        global output_string
+        output_string+=("10111"+"0"+registers[instruction[1]]+x+"\n")
+
 p101=[]
 program=[]
 while True:
@@ -453,7 +666,7 @@ for i in program:
 
 e0=0   #no of variable instruction
 e1=0   #no of non variable instruction
-operand=["var","add","sub","mov","ld","st","mul","div","rs","ls","xor","or","and","not","cmp","jmp","jlt","jgt","je","hlt"]
+operand=["var","add","sub","mov","ld","st","mul","div","rs","ls","xor","or","and","not","cmp","jmp","jlt","jgt","je","hlt","addf","subf","movf","nand","nor","mulm","addm","subm"]
 for i in range (0,len(program)):
     p102=program[i].split()
     p103=p102[0]
@@ -549,6 +762,38 @@ for i in program:
         e1+=1
     elif(x[0]=="je"):
         opcode19(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="addf"):
+        opcode21(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="subf"):
+        opcode22(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="movf"):
+        opcode23(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="nand"):
+        opcode24(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="nor"):
+        opcode25(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="mulm"):
+        opcode26(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="addm"):
+        opcode27(x)
+        number_of_instructions_run+=1
+        e1+=1
+    elif(x[0]=="subm"):
+        opcode28(x)
         number_of_instructions_run+=1
         e1+=1
     elif(x[0]=="hlt"):
