@@ -1,0 +1,6 @@
+the new opcodes we added are:-
+nand reg1 reg2 reg3 ,saved the nand of reg2 and reg3 in reg1(10011)
+nor reg1 reg2 reg3 ,saved the nand of reg2 and reg3 in reg1(10100)
+multiply reg1 $immediate ,multiply a immediate value to reg1(10101)
+add reg1 $immediate ,multiply a immediate value to reg1(10110)
+sub reg1 $immediate ,multiply a immediate value to reg1(10111)
