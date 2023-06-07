@@ -24,7 +24,7 @@ def float_to_ieee_754(float_num):
     exponent_bits = format(exponent, '03b')
     mantissa_bits = format(int(mantissa * (2 ** 5)), '05b')
     ieee_754_bits = exponent_bits + mantissa_bits
-    return str(ieee_754_bits)
+    return str(ieee_754_bits).zfill(16)
 def ieee_754_to_float(ieee_754_bits):
     ieee_754_bits = str(ieee_754_bits).zfill(8)
     exponent_bits = ieee_754_bits[:3]
@@ -290,7 +290,7 @@ def opcode21(instruction):
         file_registers["FLAG"] = "0000000000000000"
         print_registers_program_counter()
     elif result>127 or result<0:
-        file_registers[temp1] =float_to_ieee_754(0)
+        file_registers[temp1] ="0000000000000000"
         file_registers["FLAG"] = "0000000000001000"
         print_registers_program_counter()
     global program_counter 
@@ -302,7 +302,7 @@ def opcode22(instruction):
     temp3=registers[instruction[13:16]]
     result = ieee_754_to_float(file_registers[temp2]) - ieee_754_to_float(file_registers[temp3])
     if ieee_754_to_float(file_registers[temp2]) >= ieee_754_to_float(file_registers[temp3]):
-        file_registers[temp1] = float_to_ieee_754(result)
+        file_registers[temp1] = "0000000000000000"
         file_registers["FLAG"] = "0000000000000000"
         print_registers_program_counter()
     elif ieee_754_to_float(file_registers[temp3]) > ieee_754_to_float(file_registers[temp2]):
@@ -316,6 +316,65 @@ def opcode23(instruction):
     temp2=instruction[8:16]
     file_registers[temp1] = str(temp2).zfill(16)
     file_registers["FLAG"] = "0000000000000000"
+    print_registers_program_counter()
+    global program_counter 
+    program_counter += 1
+def opcode24(instruction):
+    temp1=registers[instruction[7:10]]
+    temp2=registers[instruction[10:13]]
+    temp3=registers[instruction[13:16]]
+    result = ~(int(file_registers[temp2])&int(file_registers[temp3]))
+    file_registers[temp1]=padding_zeros(result)
+    file_registers["FLAG"] = "0000000000000000"
+    print_registers_program_counter()
+    global program_counter
+    program_counter+=1
+def opcode25(instruction):
+    temp1=registers[instruction[7:10]]
+    temp2=registers[instruction[10:13]]
+    temp3=registers[instruction[13:16]]
+    result = ~(int(file_registers[temp2])|int(file_registers[temp3]))
+    file_registers[temp1]=padding_zeros(result)
+    file_registers["FLAG"] = "0000000000000000"
+    print_registers_program_counter()
+    global program_counter
+    program_counter+=1
+def opcode26(instruction):
+    temp1=registers[instruction[6:9]]
+    temp2=instruction[9:16]
+    result = int(file_registers[temp1],2) * int(temp2,2)
+    if result <= 127 and result>= 0 :
+        file_registers[temp1] = padding_zeros0(result)
+        file_registers["FLAG"] = "0000000000000000"
+    elif result>127 or result<0:
+        file_registers[temp1] = padding_zeros0(0)
+        file_registers["FLAG"] = "0000000000001000"
+    print_registers_program_counter()
+    global program_counter 
+    program_counter += 1
+def opcode27(instruction):
+    temp1=registers[instruction[6:9]]
+    temp2=instruction[9:16]
+    result = int(file_registers[temp1],2) + int(temp2,2)
+    if result <= 127 and result>= 0 :
+        file_registers[temp1] = padding_zeros0(result)
+        file_registers["FLAG"] = "0000000000000000"
+    elif result>127 or result<0:
+        file_registers[temp1] = padding_zeros0(0)
+        file_registers["FLAG"] = "0000000000001000"
+    print_registers_program_counter()
+    global program_counter 
+    program_counter += 1
+def opcode28(instruction):
+    temp1=registers[instruction[6:9]]
+    temp2=instruction[9:16]
+    result = int(file_registers[temp1],2) - int(temp2,2)
+    if result <= 127 and result>= 0 :
+        file_registers[temp1] = padding_zeros0(result)
+        file_registers["FLAG"] = "0000000000000000"
+    elif result>127 or result<0:
+        file_registers[temp1] = padding_zeros0(0)
+        file_registers["FLAG"] = "0000000000001000"
     print_registers_program_counter()
     global program_counter 
     program_counter += 1
@@ -378,6 +437,16 @@ while(True):
         opcode22(machine_code)
     elif(machine_code[0:5]=="10010"):
         opcode23(machine_code)
+    elif(machine_code[0:5]=="10011"):
+        opcode24(machine_code)
+    elif(machine_code[0:5]=="10100"):
+        opcode25(machine_code)
+    elif(machine_code[0:5]=="10101"):
+        opcode26(machine_code)
+    elif(machine_code[0:5]=="10110"):
+        opcode27(machine_code)
+    elif(machine_code[0:5]=="10111"):
+        opcode28(machine_code)
 
 dump_memory =[]
 for i in range(128):
