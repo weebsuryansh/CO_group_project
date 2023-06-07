@@ -110,12 +110,17 @@ def opcode4(instruction):
     program_counter += 1   
 
 def opcode5(instruction):
+    global program_counter
     temp1=registers[instruction[6:9]]
     temp2=instruction[9:16]
-    file_registers[temp1] = memory[temp2]
-    file_registers["FLAG"] = "0000000000000000"
-    print_registers_program_counter()
-    global program_counter 
+    if(temp2 in memory.keys()):
+        file_registers[temp1] = memory[temp2]
+        file_registers["FLAG"] = "0000000000000000"
+        print_registers_program_counter()
+    else:
+        file_registers[temp1]="0000000000000000"
+        file_registers["FLAG"] = "0000000000000000"
+        print_registers_program_counter()
     program_counter += 1
 
 def opcode6(instruction):
